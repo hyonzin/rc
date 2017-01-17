@@ -12,4 +12,5 @@ export TERM=xterm-256color
 alias tf="tail -F"
 
 #for PS1
-export PS1="\[\033[31m\]T\t \[\033[32m\]\w\n\[\033[33m\]\u@MacBook \$ \e[0m\]"
+#export PS1="\[\033[31m\]T\t \[\033[32m\]\w\n\[\033[33m\]\u@\h \$ \e[0m\]"
+export PS1="\[\033[33m\]T\t \[\033[32m\]\w\n\[\033[34m\]\u@\h \$ \e[0m\]"
