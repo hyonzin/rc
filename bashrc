@@ -12,4 +12,9 @@ export TERM=xterm-256color
 alias tf="tail -F"
 
 #for PS1
-export PS1="\[\033[31m\]T\t \[\033[32m\]\w\n\[\033[33m\]\u@MacBook \$ \e[0m\]"
+parse_git_branch() {
+	git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/ (\1)/'
+}
+
+export PS1="\e[0;31mT\t\e[m \e[0;32m\w\e[m\e[0;33m$(parse_git_branch)\e[m\n\u@\h $ "
+
