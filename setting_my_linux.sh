@@ -51,7 +51,7 @@ git config --global user.name  "hyonzin"
 git config --global user.email "hyeonjin507@gmail.com"
 
 if [ ! -f ~/.ssh/id_rsa ]; then
-	mkdir ~/.ssh
+	mkdir -p ~/.ssh
 	ssh-keygen -t rsa -q -N "" -f ~/.ssh/id_rsa"
 fi
 
