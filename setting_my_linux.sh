@@ -28,6 +28,10 @@ say "alias la='ls -A'"
 say "alias l='ls -CF'"
 say "alias tf=\"tail -F\""
 say
+say "function gr {"
+say "    grep -nr \"\$@\" \*"
+say "}"
+say
 say "#================================"
 
 DEST=~/.vimrc
