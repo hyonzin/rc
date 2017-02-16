@@ -14,7 +14,7 @@ say
 say "parse_git_branch() {"
 say "git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/ (\1)/'"
 say "}"
-say "export PS1=\"\e[0;31mT\\t\e[m \e[0;32m\w\e[m\e[0;33m\$(parse_git_branch)\e[m\\n\u@\h $ \""
+say "export PS1=\"\e[0;31mT\\\t\e[m \e[0;32m\w\e[m\e[0;33m\$(parse_git_branch)\e[m\\\n\u@\h $ \""
 say "export GREP_OPTIONS='--color=auto'"
 say
 say "# Set CLICOLOR if you want Ansi Colors in iTerm2"
@@ -29,7 +29,7 @@ say "alias l='ls -CF'"
 say "alias tf=\"tail -F\""
 say
 say "function gr {"
-say "    grep -nr \"\$@\" \*"
+say "    grep -nr \"\$@\" *"
 say "}"
 say
 say "#================================"
@@ -51,6 +51,7 @@ git config --global user.name  "hyonzin"
 git config --global user.email "hyeonjin507@gmail.com"
 
 if [ ! -f ~/.ssh/id_rsa ]; then
-	echo -e "\n\n\n" | ssh-keygen -t rsa
+	mkdir ~/.ssh
+	ssh-keygen -t rsa -q -N "" -F "~/.ssh/id_rsa"
 fi
 
