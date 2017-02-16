@@ -43,5 +43,10 @@ say "set smartindent"
 say "set cindent"
 say "syntax on"
 
+git config --global user.name  "hyonzin"
 git config --global user.email "hyeonjin507@gmail.com"
-git config --global user.name "hyonzin"
+
+if [ ! -f ~/.ssh/id_rsa ]; then
+	echo -e "\n\n\n" | ssh-keygen -t rsa
+fi
+
