@@ -27,6 +27,7 @@ say "alias ll='ls -alF'"
 say "alias la='ls -A'"
 say "alias l='ls -CF'"
 say "alias tf=\"tail -F\""
+say "alias wt=\"watch -n\""
 say
 say "function gr {"
 say "    grep -nr \"\$@\" *"
