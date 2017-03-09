@@ -43,6 +43,7 @@ say "set autoindent"
 say "set smartindent"
 say "set cindent"
 say "syntax on"
+say "colorscheme elflord"
 
 git config --global user.name  "hyonzin"
 git config --global user.email "hyeonjin507@gmail.com"
