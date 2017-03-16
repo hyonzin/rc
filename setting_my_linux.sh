@@ -4,7 +4,7 @@ say () {
 	echo $@ >> $DEST
 }
 
-DEST=~/.bashrc
+DEST=~/.hyonzinrc
 
 say
 say "#================================"
@@ -28,6 +28,16 @@ say "alias la='ls -A'"
 say "alias l='ls -CF'"
 say "alias tf=\"tail -F\""
 say "alias wt=\"watch -n\""
+say
+say "#================================"
+
+DEST=~/.bashrc
+ssay
+say "#================================"
+say "# hyeonjin added `date '+%F'`"
+say "#================================"
+say
+say "source ~/.hyonzinrc"
 say
 say "#================================"
 
