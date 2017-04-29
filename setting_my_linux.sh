@@ -58,6 +58,7 @@ say "colorscheme elflord"
 git config --global user.name  "hyonzin"
 git config --global user.email "hyeonjin507@gmail.com"
 git config --global push.default matching
+git config --global http.postBuffer 524288000
 
 if [ ! -f ~/.ssh/id_rsa ]; then
 	mkdir -p ~/.ssh
