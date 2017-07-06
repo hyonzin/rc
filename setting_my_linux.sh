@@ -22,11 +22,11 @@ say
 say "# Set colors to match iTerm2 Terminal Colors"
 say "export TERM=xterm-256color"
 say
-say "alias ll='ls -alF'"
-say "alias la='ls -A'"
 say "alias l='ls -CF'"
+say "alias la='ls -A'"
+say "alias ll='ls -alF'"
+say "alias lh='ls -alFh'"
 say "alias tf=\"tail -F\""
-say "alias wt=\"watch -n\""
 say
 say "#================================"
 
