@@ -1,3 +1,7 @@
+### rc
+
+my custom linux setting (PS1, ls alias, .vimrc, git settings, ssh public key)
+
 ### Run
 
 ```bash
