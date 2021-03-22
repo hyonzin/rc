@@ -26,7 +26,7 @@ say "alias l='ls -CF'"
 say "alias la='ls -A'"
 say "alias ll='ls -alF'"
 say "alias lh='ls -alFh'"
-say "alias tf=\"tail -F\""
+say "alias tf='tail -F'"
 say
 say "#================================"
 
