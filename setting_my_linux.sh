@@ -14,7 +14,7 @@ say
 say "parse_git_branch() {"
 say "  git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/ (\\\\1)/'"
 say "}"
-say "export PS1=\"[\e[0;32m\w\e[m]\e[0;33m\\\$(parse_git_branch)\e[m\\n\u@\h $ \""
+say "export PS1=\"[\e[0;32m\w\e[m]\e[0;33m\\\$(parse_git_branch)\e[m\\n\u@\h$ \""
 say
 say "# Set CLICOLOR if you want Ansi Colors in iTerm2"
 say "export CLICOLOR=1"
