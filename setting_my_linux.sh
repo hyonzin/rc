@@ -27,6 +27,7 @@ say "alias la='ls -A'"
 say "alias ll='ls -alF'"
 say "alias lh='ls -alFh'"
 say "alias tf='tail -F'"
+say "alias ta='tmux attach'"
 say
 say "#================================"
 
