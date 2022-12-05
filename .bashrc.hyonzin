@@ -1,0 +1,60 @@
+#================================
+# hyonzin updated 2022-12-05
+#================================
+
+source ~/.git-completion.sh
+
+alias l='ls -CF'
+alias la='ls -A'
+alias ll='ls -alF'
+alias lh='ls -alFh'
+alias tf="tail -F"
+alias ta="tmux attach"
+
+alias k='kubectl'
+alias kgp='kubectl get po'
+function ksh {
+    kubectl exec -it $(kubectl get po | grep Running | grep $1 | awk '{print($1)}') bash
+}
+
+# Set custom prompts
+export BASH_SILENCE_DEPRECATION_WARNING=1
+export PS1="[\e[0;32m\w\e[m]\e[0;33m\$(parse_git_branch)\e[0;34m\$(parse_k8s_cluster_namespace)\e[m\n\u@\h$ "
+# Set CLICOLOR if you want Ansi Colors in iTerm2
+export CLICOLOR=1
+# Set colors to match iTerm2 Terminal Colors
+export TERM=xterm-256color
+
+#for gcc, g++ on Mac
+export PATH=/usr/local/Cellar/gcc/10.2.0_3/bin/:$PATH
+
+export PATH=$PATH:$HOME/Library/Python/3.8/bin
+export PATH=$HOME/local/bin:$HOME/.bin:/usr/local/bin:$PATH
+export LD_LIBRARY_PATH=$HOME/local/lib:$LD_LIBRARY_PATH
+
+#for homebrew
+eval "$(/opt/homebrew/bin/brew shellenv 2>/dev/null)" 2>/dev/null
+
+parse_git_branch() {
+	git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/ (\1)/'
+}
+
+parse_k8s_cluster_namespace() {
+	kubectl config view --minify | awk '{ \
+			if (!ns && $1=="namespace:"){ ns=$2; } \
+			else if (ns && flag==1){ cluster=$2; exit; } \
+			else if (ns && $2=="--cluster-name"){ flag=1; } \
+		} END { \
+			if (cluster){ printf(" <"cluster":"ns">"); } \
+		}'
+}
+
+function slack_msg {
+    SLACK_URL=""
+	printf "{\"text\": \"$*\"}" > ${HOME}/.tmp.slack.msg
+	curl -X POST -H 'Content-type: application/json' --data @${HOME}/.tmp.slack.msg ${SLACK_URL}
+	rm -f ${HOME}/.tmp.slack.msg
+}
+
+#don't make .DS_Store
+defaults write com.apple.desktopservices DSDontWriteNetworkStores true 2> /dev/null
