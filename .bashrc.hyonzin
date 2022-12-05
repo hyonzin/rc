@@ -45,7 +45,7 @@ parse_k8s_cluster_namespace() {
 			else if (ns && flag==1){ cluster=$2; exit; } \
 			else if (ns && $2=="--cluster-name"){ flag=1; } \
 		} END { \
-			if (cluster){ printf(" "ns" @"cluster); } \
+			if (cluster){ printf(" ["ns", "cluster"]"); } \
 		}'
 }
 
