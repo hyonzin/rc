@@ -2,7 +2,7 @@
 
 say () {
     echo $@
-	echo $@ >> $DEST
+    echo $@ >> $DEST
 }
 
 curl -L https://raw.githubusercontent.com/hyonzin/rc/master/.bashrc.hyonzin > ~/.bashrc.hyonzin
@@ -38,6 +38,6 @@ git config --global http.postBuffer 524288000
 
 # generate ssh key
 if [ ! -f ~/.ssh/id_rsa ]; then
-	mkdir -p ~/.ssh
-	ssh-keygen -t rsa -q -N "" -f ~/.ssh/id_rsa
+    mkdir -p ~/.ssh
+    ssh-keygen -t rsa -q -N "" -f ~/.ssh/id_rsa
 fi

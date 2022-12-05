@@ -1,6 +1,6 @@
 ### rc
 
-my custom linux setting (PS1, ls alias, .vimrc, git settings, ssh public key)
+my custom linux setting (PS1, ls alias, .vimrc, git settings, ssh key generation)
 
 ### Run
 
