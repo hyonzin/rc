@@ -19,7 +19,7 @@ function ksh {
 
 # Set custom prompts
 export BASH_SILENCE_DEPRECATION_WARNING=1
-export PS1="\e[0;32m\w\e[m\e[0;33m\$(parse_git_branch)\e[0;34m\$(parse_k8s_cluster_namespace)\e[m\n\u@\h$ "
+export PS1="\e[0;32m\w\e[m\e[0;33m\$(parse_git_branch)\e[1;49;34m\$(parse_k8s_cluster_namespace)\e[m\n\u@\h$ "
 # Set CLICOLOR if you want Ansi Colors in iTerm2
 export CLICOLOR=1
 # Set colors to match iTerm2 Terminal Colors
