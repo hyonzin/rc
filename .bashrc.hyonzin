@@ -20,6 +20,7 @@ function ksh {
 function ksh_main {
     kubectl exec -it $(kubectl get po | grep Running | grep $1 | awk '{print($1)}') -c main bash
 }
+complete -o default -F __start_kubectl k
 
 
 # Set custom prompts
