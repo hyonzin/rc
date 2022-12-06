@@ -2,7 +2,8 @@
 # hyonzin updated 2022-12-05
 #================================
 
-source ~/.git-completion.sh
+source ~/.git-completion.sh 2> /dev/null
+source ~/.kubectl-completion.sh 2> /dev/null
 
 alias l='ls -CF'
 alias la='ls -A'
@@ -16,6 +17,10 @@ alias kgp='kubectl get po'
 function ksh {
     kubectl exec -it $(kubectl get po | grep Running | grep $1 | awk '{print($1)}') bash
 }
+function ksh_main {
+    kubectl exec -it $(kubectl get po | grep Running | grep $1 | awk '{print($1)}') -c main bash
+}
+
 
 # Set custom prompts
 export BASH_SILENCE_DEPRECATION_WARNING=1

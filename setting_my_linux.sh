@@ -7,6 +7,7 @@ say () {
 
 curl -L https://raw.githubusercontent.com/hyonzin/rc/master/.bashrc.hyonzin > ~/.bashrc.hyonzin
 curl -L https://raw.githubusercontent.com/hyonzin/rc/master/.git-completion.sh > ~/.git-completion.sh
+curl -L https://raw.githubusercontent.com/hyonzin/rc/master/.kubectl-completion.sh > ~/.kubectl-completion.sh
 
 DEST=~/.bashrc
 echo [to $DEST]
