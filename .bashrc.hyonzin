@@ -64,5 +64,29 @@ function slack_msg {
 	rm -f ${HOME}/.tmp.slack.msg
 }
 
+# >>> conda initialize >>>
+# !! Contents within this block are managed by 'conda init' !!
+__conda_setup="$('${HOME}/local/anaconda3/bin/conda' 'shell.bash' 'hook' 2> /dev/null)"
+if [ $? -eq 0 ]; then
+    eval "$__conda_setup"
+else
+    if [ -f "${HOME}/local/anaconda3/etc/profile.d/conda.sh" ]; then
+        . "${HOME}/local/anaconda3/etc/profile.d/conda.sh"
+    else
+        export PATH="${HOME}/local/anaconda3/bin:$PATH"
+    fi
+fi
+unset __conda_setup
+# <<< conda initialize <<<
+# check auto_actavate_base: false
+cat ~/.condarc 2> /dev/null | grep "auto_activate_base: false" 1> /dev/null
+if [ $? != 0 ]; then
+	conda config --set auto_activate_base false 2> /dev/null
+	echo "auto_activate_base: false" > ~/.condarc
+fi
+
+#conda deactivate 2> /dev/null
+conda activate py38 2> /dev/null
+
 #don't make .DS_Store
 defaults write com.apple.desktopservices DSDontWriteNetworkStores true 2> /dev/null
