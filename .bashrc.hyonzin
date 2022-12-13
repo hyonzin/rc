@@ -3,7 +3,7 @@
 #================================
 
 source ~/.git-completion.sh 2> /dev/null
-source ~/.kubectl-completion.sh 2> /dev/null
+#source ~/.kubectl-completion.sh 2> /dev/null
 
 alias l='ls -CF'
 alias la='ls -A'
@@ -51,6 +51,7 @@ parse_k8s_cluster_namespace() {
     	cat ~/.kube/config 2> /dev/null | awk -v ctx=${ctx} -v cluster=${ctx##*/} '{ \
     			if (!ns && $1 == "cluster:" && $2 == ctx){ ns = $2; flag = 1; } \
     			else if (flag == 1 && $1 == "namespace:"){ ns = $2; exit; } \
+    			else if (flag == 1 && $1 == "user:"){ ns = "-"; exit; } \
     		} END { \
     			if (ns){ printf(" ["ns", "cluster"]"); } \
     		}'
@@ -85,7 +86,7 @@ if [ $? != 0 ]; then
 	echo "auto_activate_base: false" > ~/.condarc
 fi
 
-#conda deactivate 2> /dev/null
+conda deactivate 2> /dev/null
 conda activate py38 2> /dev/null
 
 #don't make .DS_Store
