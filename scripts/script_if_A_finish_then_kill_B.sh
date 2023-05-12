@@ -13,7 +13,7 @@ B_pid=$2
 while true; do
 	printf "check "
 	date
-	A_exists=$(ps -ef | awk '{print($2)}' | grep ${A_pid} | wc -l)
+	A_exists=$(ps -ef | awk '{ if($2=="'${A_pid}'") {print($2)} }' | wc -l)
 	if [ $A_exists == 0 ]; then 
 		echo kill -9 ${B_pid}
 		kill -9 ${B_pid}
