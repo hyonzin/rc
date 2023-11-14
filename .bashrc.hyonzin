@@ -22,6 +22,9 @@ function ksh_main {
 }
 complete -o default -F __start_kubectl k
 
+# Git custom
+git config --global alias.cm 'commit -m'
+git config --global alias.ca 'commit --amend'
 
 # Set custom prompts
 export BASH_SILENCE_DEPRECATION_WARNING=1
